@@ -1,3 +1,3 @@
-FROM temporalio/web:d8a8896e14ebd155543d88cc4e3a4de4279f41629e7c0a0e86ef5c17c23b3137
+FROM temporalio/web:1.15.0
 
 ENTRYPOINT ["/bin/sh", "-c", "TEMPORAL_GRPC_ENDPOINT=$TEMPORAL_GRPC_HOST:7233 node server.js"]
