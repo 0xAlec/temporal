@@ -249,23 +249,6 @@ services:
       name: temporal-db
       property: host
 - type: pserv
-  name: temporal-web
-  autoDeploy: false
-  plan: Starter
-  region: oregon
-  env: docker
-  dockerfilePath: ./temporal-cluster/web/Dockerfile
-  envVars:
-  - key: PORT
-    value: 8088
-  - key: TEMPORAL_PERMIT_WRITE_API
-    value: true
-  - key: TEMPORAL_GRPC_HOST
-    fromService:
-      name: temporal-frontend
-      type: pserv
-      property: host
-- type: pserv
   name: temporal-ui
   autoDeploy: false
   plan: Starter
@@ -274,7 +257,7 @@ services:
   dockerfilePath: ./temporal-cluster/ui/Dockerfile
   envVars:
   - key: PORT
-    value: 8080
+    value: 8088
   - key: TEMPORAL_PORT
     value: 7233
   - key: TEMPORAL_HOST
